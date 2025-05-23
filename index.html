@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Login NIS</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ecf0f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      width: 350px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      background-color: #fff;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .judul {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 30px;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+    }
+    .inputtext {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      background-color: #f2f2f2;
+      font-size: 16px;
+      color: #333;
+      box-sizing: border-box;
+    }
+    .tombol {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      background-color: #3498db;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+    .warning {
+      color: red;
+      font-size: 14px;
+      margin-top: -10px;
+      margin-bottom: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="judul">T F L M</div>
+    <img class="logo" src="https://lh3.googleusercontent.com/d/1Em6kwqdZfG27aKHEV8EUv4ehlKPCO_kN" alt="Logo">
+    <form id="login-form">
+      <input type="number" name="nis" placeholder="Masukkan NIS" class="inputtext" required>
+      <div id="peringatan" class="warning">NIS tidak terdaftar!</div>
+      <input type="submit" value="Login" class="tombol">
+    </form>
+  </div>
+
+  <script>
+    const allowedNIS = ["2416124","2416125","2416126","2416127","2416128","2416129","2416130","2416131","2416132","2416133","2416134","2416135","2416136","2416137","2416138","2416139","2416140","2416141","2416142","2416143","2416144","2416145","2416146","2416147","2416148","2416149","2416150","2416151","2416152","2416153","2416154","2416155","2416156","2416157","2416158","2416159","2416160","2416161","2416162","2416163","2416164","2416165","2416166","2416167","2416168","2416169","2416170","2416171","2416172","2416173","2416174","2416175","2416176","2416177","2416178","2416179","2416180","2416181","2416182","2416183","2416184","2416185","2416186","2416187","2416188","2416189","2416190","2416191","2416192","2416193","2416194","2416195"
+];
+    const redirectURL = "https://sites.google.com/guru.smk.belajar.id/smkn-26-jakarta-kurikulum/sumatif-akhir-semester-genap/pelaksaan-sas/kelas-x/tflm1";
+
+    const form = document.getElementById("login-form");
+    const nisInput = form.elements["nis"];
+    const warning  = document.getElementById("peringatan");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nis = nisInput.value.trim();
+
+      if (allowedNIS.includes(nis)) {
+        window.location.href = redirectURL;
+      } else {
+        warning.style.display = "block";
+      }
+    });
+
+    nisInput.addEventListener("input", function() {
+      if (warning.style.display === "block") {
+        warning.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
+
